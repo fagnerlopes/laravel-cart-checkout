@@ -1,12 +1,32 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
 
+## Instalando o projeto
+
+O projeto se utiliza de contêineres Docker, através do pacote *Laravel Sail* para facilitar a configuração do ambiente de desenvolvimento. Portanto, é necessário que já possua o Docker e o Docker Compose instalados na máquina.
+
+Você é livre para rodar o projeto em ambiente local mas esse texto não tratará essa situação.
+
+Links para instalação e configuração de Docker:
+
+- [Windows](https://docs.docker.com/docker-for-windows/install/)
+- [Linux (Debian based)](https://docs.docker.com/engine/install/ubuntu/)
+
+## Passos para o rodar o projeto localmente:
+
+- Faça um clone do projeto para sua máquina local
+- Crie um arquivo `.env`, recomendamos usar `.env-example` como base
+- Adicione ou altere as chaves conforme sua necessidade
+- acesse a pasta do projeto via console (terminal/PowerShell/CMD)
+- execute o comando:
+```shell
+docker run --rm \
+    -u "$(id -u):$(id -g)" \
+    -v "$(pwd):/var/www/html" \
+    -w /var/www/html \
+    laravelsail/php82-composer:latest \
+    composer install --ignore-platform-reqs
+ ```
+- Após finalizado processamento, execute o comando `./sail up -d`
 ## About Laravel
 
 Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
